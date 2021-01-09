@@ -1,8 +1,15 @@
 import React, { ReactNode } from 'react';
-import { View, Text, Image, StyleSheet, Dimensions } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  StatusBar,
+} from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import theme, { Box } from './Theme';
-
+import KeyboardAvoidingComponent from './KeyboardAvoidingView';
 const { width } = Dimensions.get('window');
 const aspectRatio = 750 / 1125;
 const height = width * aspectRatio;
@@ -19,7 +26,7 @@ const Container = ({ children, footer }: ContainerProps) => {
   const insets = useSafeAreaInsets();
   return (
     <Box flex={1} backgroundColor='secondary'>
-      {/* <StatusBar barStyle='light-content' /> */}
+      <StatusBar barStyle='light-content' />
       <Box backgroundColor='white'>
         <Box
           borderBottomLeftRadius='xl'
@@ -46,18 +53,19 @@ const Container = ({ children, footer }: ContainerProps) => {
           }}
         />
         <Box
-          borderRadius='xl'
+          // borderRadius = 'xl'
           borderTopLeftRadius={0}
+          borderTopRightRadius='xl'
           backgroundColor='white'
           flex={1}>
           {children}
         </Box>
       </Box>
-      <Box backgroundColor='secondary' paddingTop='m'>
+      {/* <Box backgroundColor='secondary' paddingTop='m'>
         {footer}
 
-        <Box height={insets.bottom}></Box>
-      </Box>
+        <Box height={insets.bottom} />
+      </Box> */}
     </Box>
   );
 };

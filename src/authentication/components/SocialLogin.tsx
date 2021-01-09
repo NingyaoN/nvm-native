@@ -16,7 +16,7 @@ const SIZE = theme.borderRadii.l * 2;
 const SocialIcon = ({ children }: SocialLoginProps) => {
   return (
     <Box
-      margin='s'
+      marginHorizontal='s'
       backgroundColor='white'
       width={SIZE}
       height={SIZE}

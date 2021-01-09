@@ -7,7 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
  * COmponents
  */
 
-import { LoadAssets, theme, Routes } from './src/components';
+import { LoadAssets, theme } from './src/components';
 
 const fonts = {
   'SFProText-Bold': require('./assets/fonts/SF-Pro-Text-Bold.otf'),
