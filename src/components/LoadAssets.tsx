@@ -1,5 +1,6 @@
 import React, { ReactElement, useCallback, useEffect, useState } from 'react';
-import { AsyncStorage } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import AsyncStorage from '@react-native-community/async-storage';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -17,10 +18,13 @@ const usePromiseAll = (promises: Promise<void | void[]>[], cb: () => void) =>
     })();
   });
 
-const useLoadAssets = (assets: number[], fonts: FontSource): boolean => {
+const useLoadAssets = (assets: any, fonts: FontSource): boolean => {
   const [ready, setReady] = useState(false);
   usePromiseAll(
-    [Font.loadAsync(fonts), ...assets.map((asset) => Asset.loadAsync(asset))],
+    [
+      Font.loadAsync(fonts),
+      ...assets.map((asset: any) => Asset.loadAsync(asset)),
+    ],
     () => setReady(true)
   );
   return ready;
@@ -65,6 +69,7 @@ const LoadAssets = ({ assets, fonts, children }: LoadAssetsProps) => {
   }
   return (
     <NavigationContainer {...{ onStateChange, initialState }}>
+      <StatusBar />
       {children}
     </NavigationContainer>
   );

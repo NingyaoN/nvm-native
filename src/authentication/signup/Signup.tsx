@@ -8,22 +8,25 @@ import {
   Container,
   StackNavigationProps,
   Routes,
-  Checkbox,
   Button,
   Text,
   Box,
   TextInput,
 } from '../../components';
 
-const SignInSchema = Yup.object().shape({
+const SignupSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
   password: Yup.string()
     .min(6, 'Too Short!')
     .max(12, 'Too Long!')
     .required('Required'),
+
+  passwordConfirmation: Yup.string()
+    .equals([Yup.ref('password')], 'Password does not match')
+    .required('Required'),
 });
 
-const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
+const Signup = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
   const {
     handleChange,
     handleBlur,
@@ -31,20 +34,20 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
     values,
     errors,
     touched,
-    setFieldValue,
   } = useFormik({
-    validationSchema: SignInSchema,
-    initialValues: { email: '', password: '', rememberMe: false },
+    validationSchema: SignupSchema,
+    initialValues: { email: '', password: '', passwordConfirmation: '' },
     onSubmit: (values) => console.log(values),
   });
 
   const password = useRef<RNTextInput>(null);
+  const passwordConfirmation = useRef<RNTextInput>(null);
 
   const footer = (
     <Footer
-      title='Don"t have an account?'
-      action='Sign Up Here'
-      onPress={() => navigation.navigate('Signup')}
+      title='Already have an Account?'
+      action='Sign In Here'
+      onPress={() => navigation.navigate('Login')}
     />
   );
 
@@ -52,7 +55,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
     <Container {...{ footer }}>
       <Box padding='xl'>
         <Text variant='title1' textAlign='center' marginBottom='l'>
-          Welcome Back
+          Create Account
         </Text>
 
         <Text textAlign='center' marginBottom='l'>
@@ -76,6 +79,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
             />
           </Box>
 
+          <Box marginBottom='m' />
           <TextInput
             ref={password}
             onChangeText={handleChange('password')}
@@ -88,29 +92,30 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
             autoCompleteType='password'
             secureTextEntry
             autoCapitalize='none'
+            returnKeyLabel='next'
+            returnKeyType='next'
+            onSubmitEditing={() => passwordConfirmation.current?.focus()}
+          />
+          <Box marginBottom='m' />
+          <TextInput
+            ref={passwordConfirmation}
+            onChangeText={handleChange('passwordConfirmation')}
+            onBlur={handleBlur('passwordConfirmation')}
+            value={values.passwordConfirmation}
+            icon='lock'
+            error={errors.passwordConfirmation}
+            touched={touched.passwordConfirmation}
+            placeholder='Re-enter your password'
+            autoCompleteType='password'
+            secureTextEntry
+            autoCapitalize='none'
             returnKeyLabel='go'
             returnKeyType='go'
             onSubmitEditing={() => handleSubmit()}
           />
 
-          <Box flexDirection='row' justifyContent='space-between'>
-            <Checkbox
-              label='Remember me'
-              checked={values.rememberMe}
-              onChange={() => setFieldValue('rememberMe', !values.rememberMe)}
-            />
-            <Button
-              variant='transparent'
-              onPress={() => navigation.navigate('ForgotPassword')}>
-              <Text>Forgot password</Text>
-            </Button>
-          </Box>
           <Box marginTop='m' alignItems='center'>
-            <Button
-              variant='primary'
-              onPress={handleSubmit}
-              label='Log in to your account'
-            />
+            <Button variant='primary' onPress={handleSubmit} label='Signup' />
           </Box>
         </Box>
       </Box>
@@ -118,4 +123,4 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
   );
 };
 
-export default Login;
+export default Signup;
