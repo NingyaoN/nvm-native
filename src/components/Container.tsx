@@ -8,7 +8,7 @@ import {
   StatusBar,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import theme, { Box } from './Theme';
+import { Box, useTheme } from './Theme';
 import KeyboardAvoidingComponent from './KeyboardAvoidingView';
 const { width } = Dimensions.get('window');
 const aspectRatio = 750 / 1125;
@@ -23,6 +23,7 @@ interface ContainerProps {
 export const assets = [require('./assets/patterns/1.jpg')];
 
 const Container = ({ children, footer }: ContainerProps) => {
+  const theme = useTheme();
   const insets = useSafeAreaInsets();
   return (
     <Box flex={1} backgroundColor='secondary'>

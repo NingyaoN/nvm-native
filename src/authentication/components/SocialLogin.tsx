@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react';
-import Svg, { Path, G } from 'react-native-svg';
 
-import { Text, View } from 'react-native';
-import { Box } from '../../components';
-import { theme } from '../../components';
+import { Box, useTheme } from '../../components';
 
 import { Google, WhatsApp, Facebook } from '../../components';
 
@@ -11,9 +8,11 @@ interface SocialLoginProps {
   children: ReactNode;
 }
 
-const SIZE = theme.borderRadii.l * 2;
-
 const SocialIcon = ({ children }: SocialLoginProps) => {
+  const theme = useTheme();
+
+  const SIZE = theme.borderRadii.l * 2;
+
   return (
     <Box
       marginHorizontal='s'
