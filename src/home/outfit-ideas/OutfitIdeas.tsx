@@ -1,9 +1,13 @@
 import React from 'react';
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 interface OutfitIdeasProps {}
 
 const OutfitIdeas = () => {
-  return <Text>OutfitIdeas</Text>;
+  return (
+    <View>
+      <Text>Hwlo</Text>
+    </View>
+  );
 };
 
 export default OutfitIdeas;

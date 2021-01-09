@@ -1,20 +1,19 @@
 import React from 'react';
 import {
-  StackNavigationProps,
-  Routes,
   Box,
   Text,
   Container,
   Button,
   RoundedIconButton,
   RoundedIcon,
+  AuthNavigationProps,
 } from '../../components';
 
 const SIZE = 80;
 
 const PasswordChanged = ({
   navigation,
-}: StackNavigationProps<Routes, 'PasswordChanged'>) => {
+}: AuthNavigationProps<'PasswordChanged'>) => {
   return (
     <Container
       pattern={0}
@@ -29,29 +28,29 @@ const PasswordChanged = ({
           />
         </Box>
       }>
-      <Box flex={1} justifyContent='center' alignItems='center' padding='xl'>
+      <Box alignItems='center'>
         <RoundedIcon
           name='check'
           size={SIZE}
           backgroundColor='primaryLight'
           color='primary'
         />
+      </Box>
 
-        <Text variant='title1' textAlign='center' marginVertical='l'>
-          Password Successfully changed.
-        </Text>
+      <Text variant='title1' textAlign='center' marginVertical='l'>
+        Password Successfully changed.
+      </Text>
 
-        <Text variant='body' textAlign='center' marginBottom='l'>
-          Close to go back to Login
-        </Text>
+      <Text variant='body' textAlign='center' marginBottom='l'>
+        Close to go back to Login
+      </Text>
 
-        <Box marginTop='m' alignItems='center'>
-          <Button
-            variant='primary'
-            onPress={() => navigation.navigate('Login')}
-            label='Login'
-          />
-        </Box>
+      <Box marginTop='m' alignItems='center'>
+        <Button
+          variant='primary'
+          onPress={() => navigation.navigate('Login')}
+          label='Login'
+        />
       </Box>
     </Container>
   );

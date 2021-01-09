@@ -40,6 +40,7 @@ const theme = createTheme({
     grey: 'rgba(12, 13, 52, 0.05)',
     button: '#0C0D34',
     darkGrey: '#8A8D90',
+    orange: 'orange',
   },
   borderRadii: {
     s: 4,

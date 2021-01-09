@@ -9,7 +9,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
  */
 import { AuthenticationNavigator } from './src/authentication';
 import HomeNavigator from './src/home';
-
+import { AppRoutes } from './src/components';
 import { LoadAssets } from './src/components';
 import { theme } from './src/components/Theme';
 
@@ -22,11 +22,7 @@ const fonts = {
   'SF-Pro-Display-Medium': require('./assets/fonts/SF-Pro-Display-Medium.otf'),
 };
 
-type AppStackRoutes = {
-  Authentication: undefined;
-  Home: undefined;
-};
-const AppStack = createStackNavigator<AppStackRoutes>();
+const AppStack = createStackNavigator<AppRoutes>();
 
 export default function App() {
   return (

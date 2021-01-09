@@ -4,12 +4,11 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import {
   Box,
-  StackNavigationProps,
-  Routes,
   TextInput,
   Text,
   Button,
   Container,
+  AuthNavigationProps,
 } from '../../components';
 import Footer from '../components/Footer';
 
@@ -19,7 +18,7 @@ const ForgotPasswordSchema = Yup.object().shape({
 
 const ForgotPassword = ({
   navigation,
-}: StackNavigationProps<Routes, 'ForgotPassword'>) => {
+}: AuthNavigationProps<'ForgotPassword'>) => {
   const {
     handleChange,
     handleBlur,
@@ -43,39 +42,37 @@ const ForgotPassword = ({
 
   return (
     <Container pattern={2} {...{ footer }}>
-      <Box padding='xl'>
-        <Text variant='title1' textAlign='center' marginBottom='s'>
-          Reset Password
-        </Text>
+      <Text variant='title1' textAlign='center' marginBottom='s'>
+        Reset Password
+      </Text>
 
-        <Text textAlign='center' marginBottom='l'>
-          Enter your email below.
-        </Text>
+      <Text textAlign='center' marginBottom='l'>
+        Enter your email below.
+      </Text>
 
-        <Box>
-          <Box marginBottom='m'>
-            <TextInput
-              onChangeText={handleChange('email')}
-              onBlur={handleBlur('email')}
-              value={values.email}
-              icon='mail'
-              placeholder='Enter your email'
-              error={errors.email}
-              touched={touched.email}
-              autoCompleteType='email'
-              returnKeyLabel='go'
-              returnKeyType='go'
-              onSubmitEditing={() => handleSubmit()}
-            />
-          </Box>
+      <Box>
+        <Box marginBottom='m'>
+          <TextInput
+            onChangeText={handleChange('email')}
+            onBlur={handleBlur('email')}
+            value={values.email}
+            icon='mail'
+            placeholder='Enter your email'
+            error={errors.email}
+            touched={touched.email}
+            autoCompleteType='email'
+            returnKeyLabel='go'
+            returnKeyType='go'
+            onSubmitEditing={() => handleSubmit()}
+          />
+        </Box>
 
-          <Box marginTop='m' alignItems='center'>
-            <Button
-              variant='primary'
-              onPress={handleSubmit}
-              label='Reset Password'
-            />
-          </Box>
+        <Box marginTop='m' alignItems='center'>
+          <Button
+            variant='primary'
+            onPress={handleSubmit}
+            label='Reset Password'
+          />
         </Box>
       </Box>
     </Container>

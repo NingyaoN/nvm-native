@@ -1,12 +1,17 @@
 import React from 'react';
 import { Image } from 'react-native';
 import { BorderlessButton } from 'react-native-gesture-handler';
-import { Box, Text, Button, useTheme } from '../../components';
-import { StackNavigationProps, Routes } from '../../components';
+import {
+  Box,
+  Text,
+  Button,
+  useTheme,
+  AuthNavigationProps,
+} from '../../components';
 
 const welcome = require('../../images/welcome.png');
 
-const Welcome = ({ navigation }: StackNavigationProps<Routes, 'Welcome'>) => {
+const Welcome = ({ navigation }: AuthNavigationProps<'Welcome'>) => {
   const theme = useTheme();
   return (
     <Box flex={1} backgroundColor={'white'}>

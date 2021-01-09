@@ -1,21 +1,24 @@
 import React, { useRef } from 'react';
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   useAnimatedScrollHandler,
-  interpolate,
 } from 'react-native-reanimated';
 
 import { interpolateColor } from 'react-native-redash';
 
 import Slide, { SLIDE_HEIGHT, BORDER_RADIUS } from './Slide';
 import Subslide from './SubSlide';
-import { Dot, useTheme, makeStyles } from '../../components';
+import {
+  Dot,
+  useTheme,
+  makeStyles,
+  AuthNavigationProps,
+} from '../../components';
 import { Theme } from '../../components/Theme';
 import SliderImage from './SliderImage';
 const { width } = Dimensions.get('window');
-import { StackNavigationProps, Routes } from '../../components';
 
 const useStyles = makeStyles((theme: Theme) => ({
   container: {
@@ -95,9 +98,7 @@ const slides = [
   },
 ];
 
-const Onboarding = ({
-  navigation,
-}: StackNavigationProps<Routes, 'Onboarding'>) => {
+const Onboarding = ({ navigation }: AuthNavigationProps<'Onboarding'>) => {
   const styles = useStyles();
   const theme = useTheme();
   const scrollRef = useRef<Animated.ScrollView>(null);

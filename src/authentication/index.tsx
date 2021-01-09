@@ -7,9 +7,9 @@ import Login from './login';
 import Signup from './signup';
 import ForgotPassword from './forgot-password';
 import PasswordChanged from './password-change';
-import { Routes } from '../components';
+import { AuthRoutes } from '../components';
 
-const AuthenticationStack = createStackNavigator<Routes>();
+const AuthenticationStack = createStackNavigator<AuthRoutes>();
 const AuthenticationNavigator = () => {
   return (
     <AuthenticationStack.Navigator headerMode='none'>
