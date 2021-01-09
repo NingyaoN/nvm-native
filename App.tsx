@@ -1,21 +1,30 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { ThemeProvider } from '@shopify/restyle';
+import { AuthenticationNavigator } from './src/authentication';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
+/**
+ * COmponents
+ */
+
+import { LoadAssets, theme, Routes } from './src/components';
+
+const fonts = {
+  'SFProText-Bold': require('./assets/fonts/SF-Pro-Text-Bold.otf'),
+  'SFProText-Semibold': require('./assets/fonts/SF-Pro-Text-Semibold.otf'),
+  'SFProText-Regular': require('./assets/fonts/SF-Pro-Text-Regular.otf'),
+  'SF-Pro-Display-Bold': require('./assets/fonts/SF-Pro-Display-Bold.otf'),
+  'SF-Pro-Display-Medium': require('./assets/fonts/SF-Pro-Display-Medium.otf'),
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ThemeProvider {...{ theme }}>
+      <LoadAssets {...{ fonts }}>
+        <SafeAreaProvider>
+          <AuthenticationNavigator />
+        </SafeAreaProvider>
+      </LoadAssets>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
