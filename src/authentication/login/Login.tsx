@@ -36,7 +36,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
   } = useFormik({
     validationSchema: SignInSchema,
     initialValues: { email: '', password: '', rememberMe: false },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => navigation.navigate('Home'),
   });
 
   const password = useRef<RNTextInput>(null);
