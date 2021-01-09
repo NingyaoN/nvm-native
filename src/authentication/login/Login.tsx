@@ -14,6 +14,7 @@ import {
   Box,
   TextInput,
 } from '../../components';
+import { BorderlessButton } from 'react-native-gesture-handler';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Required'),
@@ -49,7 +50,7 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
   );
 
   return (
-    <Container {...{ footer }}>
+    <Container pattern={0} {...{ footer }}>
       <Box padding='xl'>
         <Text variant='title1' textAlign='center' marginBottom='l'>
           Welcome Back
@@ -93,17 +94,21 @@ const Login = ({ navigation }: StackNavigationProps<Routes, 'Login'>) => {
             onSubmitEditing={() => handleSubmit()}
           />
 
-          <Box flexDirection='row' justifyContent='space-between'>
+          <Box
+            flexDirection='row'
+            justifyContent='space-between'
+            marginVertical='s'>
             <Checkbox
               label='Remember me'
               checked={values.rememberMe}
               onChange={() => setFieldValue('rememberMe', !values.rememberMe)}
             />
-            <Button
-              variant='transparent'
+            <BorderlessButton
               onPress={() => navigation.navigate('ForgotPassword')}>
-              <Text>Forgot password</Text>
-            </Button>
+              <Text variant='button' color='primary'>
+                Forgot password
+              </Text>
+            </BorderlessButton>
           </Box>
           <Box marginTop='m' alignItems='center'>
             <Button

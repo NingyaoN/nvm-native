@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-native';
+import { BorderlessButton } from 'react-native-gesture-handler';
 import { Box, Text, Button, useTheme } from '../../components';
 import { StackNavigationProps, Routes } from '../../components';
 
@@ -44,15 +45,14 @@ const Welcome = ({ navigation }: StackNavigationProps<Routes, 'Welcome'>) => {
             onPress={() => navigation.navigate('Login')}
           />
           <Button
+            onPress={() => navigation.navigate('Signup')}
             variant='default'
             label="Join us, It's Free"
-            onPress={() => {}}
           />
-          <Button
-            variant='transparent'
-            label='Forgot Password?'
-            onPress={() => {}}
-          />
+          <BorderlessButton
+            onPress={() => navigation.navigate('ForgotPassword')}>
+            <Text variant='button'>Forgot Password?</Text>
+          </BorderlessButton>
         </Box>
       </Box>
     </Box>

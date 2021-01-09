@@ -20,13 +20,21 @@ const styles = StyleSheet.create({});
 interface ContainerProps {
   children?: ReactNode;
   footer: ReactNode;
+  pattern: 0 | 1 | 2 | 3;
 }
 
-export const assets = [require('./assets/patterns/1.jpg')];
+export const assets = [
+  require('./assets/patterns/1.jpg'),
+  require('./assets/patterns/1.jpg'),
+  require('./assets/patterns/1.jpg'),
+  require('./assets/patterns/1.jpg'),
+] as const; //add more patterns here
 
-const Container = ({ children, footer }: ContainerProps) => {
+const Container = ({ children, footer, pattern }: ContainerProps) => {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
+
+  const asset = assets[pattern];
   return (
     // set scrollEnabled to false when scrollview pushes up.
     <KeyboardAwareScrollView scrollEnabled={true}>
@@ -41,7 +49,7 @@ const Container = ({ children, footer }: ContainerProps) => {
             overflow='hidden'
             height={height * 0.61}>
             <Image
-              source={assets[0]}
+              source={asset}
               style={{
                 width,
                 height,
@@ -52,7 +60,7 @@ const Container = ({ children, footer }: ContainerProps) => {
         </Box>
         <Box flex={1} overflow='hidden'>
           <Image
-            source={assets[0]}
+            source={asset}
             style={{
               ...StyleSheet.absoluteFillObject,
               width,

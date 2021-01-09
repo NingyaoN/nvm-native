@@ -1,6 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
-import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import {
+  BorderlessButton,
+  TouchableWithoutFeedback,
+} from 'react-native-gesture-handler';
 import { Button, Box, Text } from '../../components';
 import SocialLogin from './SocialLogin';
 
@@ -14,7 +17,7 @@ const Footer = ({ onPress, title, action }: FooterProps) => {
   return (
     <Box alignItems='center' marginBottom='m'>
       <SocialLogin />
-      <TouchableWithoutFeedback {...{ onPress }} style={{ marginTop: 10 }}>
+      <BorderlessButton {...{ onPress }} style={{ marginTop: 10 }}>
         <Text variant='button' color='white'>
           <Text variant='button' color='white'>
             {`${title}  `}
@@ -23,7 +26,7 @@ const Footer = ({ onPress, title, action }: FooterProps) => {
             {action}
           </Text>
         </Text>
-      </TouchableWithoutFeedback>
+      </BorderlessButton>
     </Box>
   );
 };

@@ -42,7 +42,7 @@ const ForgotPassword = ({
   );
 
   return (
-    <Container {...{ footer }}>
+    <Container pattern={2} {...{ footer }}>
       <Box padding='xl'>
         <Text variant='title1' textAlign='center' marginBottom='s'>
           Reset Password
