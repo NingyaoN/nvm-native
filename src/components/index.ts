@@ -12,3 +12,5 @@ export { default as Checkbox } from './form/Chekcbox';
 
 //
 export { default as KeyboardAvoidingComponent } from './KeyboardAvoidingView';
+
+export { default as CloseButton } from './CloseButton';

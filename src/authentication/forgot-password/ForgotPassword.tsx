@@ -30,7 +30,7 @@ const ForgotPassword = ({
   } = useFormik({
     validationSchema: ForgotPasswordSchema,
     initialValues: { email: '' },
-    onSubmit: (values) => console.log(values),
+    onSubmit: (values) => navigation.navigate('PasswordChanged'),
   });
 
   const footer = (
