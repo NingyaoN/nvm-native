@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Dimensions, Image } from 'react-native';
 import { Box, Text, Header } from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
 import { useTheme } from '../../components';
-import { theme } from '../../components/Theme';
 const { width } = Dimensions.get('window');
 const aspectRatio = 750 / 1125;
 
@@ -31,8 +30,8 @@ const items: DrawerItemProps[] = [
   },
   {
     icon: 'clock',
-    label: 'Outfit Ideas1',
-    screen: 'OutfitIdeas2',
+    label: 'Transaction Story',
+    screen: 'TransactionHistory',
     color: 'darkGrey',
   },
   {
