@@ -21,7 +21,6 @@ const Header = ({ left, right, title, dark }: HeaderProps) => {
   const insets = useSafeAreaInsets();
   const color = dark ? 'white' : 'secondary';
   const backgroundColor = dark ? 'secondary' : 'lightGrey';
-  console.log('color', dark, color);
   return (
     <Box
       flexDirection='row'

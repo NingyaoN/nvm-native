@@ -1,3 +1,6 @@
+import 'intl';
+import 'intl/locale-data/jsonp/en';
+
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
