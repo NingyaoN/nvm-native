@@ -4,7 +4,6 @@ import 'intl/locale-data/jsonp/en';
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
-import { ThemeProvider } from '@shopify/restyle';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 /**
@@ -14,7 +13,7 @@ import { AuthenticationNavigator } from './src/authentication';
 import HomeNavigator from './src/home';
 import { AppRoutes } from './src/components';
 import { LoadAssets } from './src/components';
-import { theme } from './src/components/Theme';
+import { ThemeProvider } from './src/components/Theme';
 
 //fonts
 const fonts = {
@@ -29,7 +28,7 @@ const AppStack = createStackNavigator<AppRoutes>();
 
 export default function App() {
   return (
-    <ThemeProvider {...{ theme }}>
+    <ThemeProvider>
       <LoadAssets {...{ fonts }}>
         <SafeAreaProvider>
           <AppStack.Navigator headerMode='none'>
