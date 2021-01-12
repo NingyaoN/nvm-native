@@ -40,7 +40,7 @@ const DrawerItem = ({ icon, label, color, ...props }: DrawerItemProps) => {
           name={icon}
           size={36}
           backgroundColor={color}
-          color='white'
+          color='background'
         />
         <Text variant='button' color='secondary' marginLeft='m'>
           {label}

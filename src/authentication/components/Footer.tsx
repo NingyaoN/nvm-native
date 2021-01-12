@@ -18,8 +18,8 @@ const Footer = ({ onPress, title, action }: FooterProps) => {
     <Box alignItems='center' marginBottom='m'>
       <SocialLogin />
       <BorderlessButton {...{ onPress }} style={{ marginTop: 10 }}>
-        <Text variant='button' color='white'>
-          <Text variant='button' color='white'>
+        <Text variant='button' color='background'>
+          <Text variant='button' color='background'>
             {`${title}  `}
           </Text>
           <Text marginLeft='s' variant='button' color='primary'>

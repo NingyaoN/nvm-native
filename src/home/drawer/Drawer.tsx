@@ -54,7 +54,7 @@ function Drawer() {
   const theme = useTheme();
   return (
     <Box flex={1}>
-      <Box flex={0.2} backgroundColor='white'>
+      <Box flex={0.2} backgroundColor='background'>
         <Box
           position='absolute'
           top={0}
@@ -95,7 +95,7 @@ function Drawer() {
           left={0}
           right={0}
           bottom={0}
-          backgroundColor='white'
+          backgroundColor='background'
           borderTopLeftRadius='xl'
           borderBottomRightRadius='xl'
           justifyContent='center'
@@ -125,7 +125,7 @@ function Drawer() {
       </Box>
 
       <Box
-        backgroundColor='white'
+        backgroundColor='background'
         overflow='hidden'
         height={height * 0.61}
         width={DRAWER_WIDTH}>

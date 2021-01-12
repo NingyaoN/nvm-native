@@ -73,7 +73,7 @@ const TransactionHistory = ({
 }: HomeNavigationProps<'TransactionHistory'>) => {
   const styles = useStyles();
   return (
-    <Box flex={1} backgroundColor='white'>
+    <Box flex={1} backgroundColor='background'>
       <Header
         left={{ icon: 'arrow-left', onPress: () => navigation.goBack() }}
         right={{ icon: 'share', onPress: () => true }}

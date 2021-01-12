@@ -12,10 +12,14 @@ const Background = () => {
   return (
     <View style={StyleSheet.absoluteFill}>
       <Box flex={1 / 3} backgroundColor='deepYellow'>
-        <Box flex={1} backgroundColor='white' borderBottomRightRadius='xl' />
+        <Box
+          flex={1}
+          backgroundColor='background'
+          borderBottomRightRadius='xl'
+        />
       </Box>
       <Box flex={1 / 3}>
-        <Box flex={1} backgroundColor='white' />
+        <Box flex={1} backgroundColor='background' />
         <Box flex={1} backgroundColor='secondary' />
         <Image
           source={assets[0]}

@@ -42,7 +42,7 @@ const Container = ({ children, footer, pattern }: ContainerProps) => {
           wHeight + (Platform.OS === 'android' ? Constants.statusBarHeight : 0)
         }
         backgroundColor='secondary'>
-        <Box backgroundColor='white'>
+        <Box backgroundColor='background'>
           <Box
             borderBottomLeftRadius='xl'
             overflow='hidden'

@@ -1,8 +1,10 @@
+import React, { ReactNode } from 'react';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import {
   createTheme,
   createText,
   createBox,
+  ThemeProvider as RestyleThemeProvider,
   useTheme as useReTheme,
 } from '@shopify/restyle';
 
@@ -15,12 +17,16 @@ export const makeStyles = <T extends NamedStyles<T>>(
   return styles(currentTheme);
 };
 
+export const palette = {
+  white: 'white',
+};
+
 const theme = createTheme({
   colors: {
     primary: '#2CB9B0',
     primaryLight: '#E7F9E7',
-    white: 'white',
     danger: '#FF0058',
+    background: palette.white,
     secondary: '#0C0D34',
     text: 'rgba(12, 13, 52, 0.7)',
     grey: 'rgba(12, 13, 52, 0.05)',
@@ -93,6 +99,9 @@ const theme = createTheme({
 
 export type Theme = typeof theme;
 
+export const ThemeProvider = ({ children }: { children: ReactNode }) => (
+  <RestyleThemeProvider {...{ theme }}>{children}</RestyleThemeProvider>
+);
 export const Text = createText<Theme>();
 export const Box = createBox<Theme>();
 export const useTheme = () => useReTheme<Theme>();

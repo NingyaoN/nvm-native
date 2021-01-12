@@ -14,7 +14,7 @@ const welcome = require('../../images/welcome.png');
 const Welcome = ({ navigation }: AuthNavigationProps<'Welcome'>) => {
   const theme = useTheme();
   return (
-    <Box flex={1} backgroundColor={'white'}>
+    <Box flex={1} backgroundColor='background'>
       <Box
         flex={1}
         borderBottomRightRadius={'xl'}
@@ -35,7 +35,7 @@ const Welcome = ({ navigation }: AuthNavigationProps<'Welcome'>) => {
       <Box flex={1} backgroundColor={'grey'}>
         <Box
           flex={1}
-          backgroundColor={'white'}
+          backgroundColor={'background'}
           borderTopLeftRadius={'xl'}
           justifyContent='space-evenly'
           alignItems='center'

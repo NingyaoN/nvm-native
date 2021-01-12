@@ -34,7 +34,7 @@ const Outfit = ({ outfit, width }: OutfitProps) => {
         style={{ backgroundColor: outfit.color, width, height }}>
         {selected && (
           <RoundedIcon
-            color='white'
+            color='background'
             size={24}
             name='check'
             backgroundColor='primary'

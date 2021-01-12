@@ -24,7 +24,7 @@ const PasswordChanged = ({
             size={60}
             onPress={() => navigation.pop()}
             color='secondary'
-            backgroundColor='white'
+            backgroundColor='background'
           />
         </Box>
       }>

@@ -16,7 +16,7 @@ const SocialIcon = ({ children }: SocialLoginProps) => {
   return (
     <Box
       marginHorizontal='s'
-      backgroundColor='white'
+      backgroundColor='background'
       width={SIZE}
       height={SIZE}
       borderRadius='l'

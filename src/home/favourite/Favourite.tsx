@@ -82,7 +82,7 @@ const Favourite = ({ navigation }: HomeNavigationProps<'FavouriteOutfits'>) => {
   const theme = useTheme();
   const width = (wWidth - theme.spacing.m * 3) / 2;
   return (
-    <Box flex={1} backgroundColor='white'>
+    <Box flex={1} backgroundColor='background'>
       <Header
         title='Favourite Outfits'
         left={{ icon: 'arrow-left', onPress: () => navigation.goBack() }}
