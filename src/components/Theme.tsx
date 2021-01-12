@@ -15,20 +15,6 @@ export const makeStyles = <T extends NamedStyles<T>>(
   return styles(currentTheme);
 };
 
-// const palette = {
-//   purpleLight: '#8C6FF7',
-//   purplePrimary: '#5A31F4',
-//   purpleDark: '#3F22AB',
-
-//   greenLight: '#56DCBA',
-//   greenPrimary: '#0ECD9D',
-//   greenDark: '#0A906E',
-
-//   black: '#0B0B0B',
-//   white: '#F0F2F3',
-//   slide: { grey: '#F4F0EF' },
-// };
-
 const theme = createTheme({
   colors: {
     primary: '#2CB9B0',
@@ -38,9 +24,15 @@ const theme = createTheme({
     secondary: '#0C0D34',
     text: 'rgba(12, 13, 52, 0.7)',
     grey: 'rgba(12, 13, 52, 0.05)',
+    lightGrey: '#FAFAFA',
     button: '#0C0D34',
     darkGrey: '#8A8D90',
     orange: 'orange',
+    pink: '#FF87A2',
+    yellow: '#FFC641',
+    violet: '#442CB9',
+    lightBlue: '#BFEAF5',
+    deepYellow: '#f77f00',
   },
   borderRadii: {
     s: 4,
@@ -82,6 +74,13 @@ const theme = createTheme({
       fontSize: 15,
       lineHeight: 24,
       color: 'text',
+    },
+
+    header: {
+      fontSize: 12,
+      fontFamily: 'SFProText-Semibold',
+      lineHeight: 24,
+      color: 'secondary',
     },
   },
 });

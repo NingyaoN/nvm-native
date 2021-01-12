@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Dimensions, Image } from 'react-native';
-
-import { Box, Text, RoundedIconButton } from '../../components';
+import { Box, Text, Header } from '../../components';
 import DrawerItem, { DrawerItemProps } from './DrawerItem';
+import { useTheme } from '../../components';
 import { theme } from '../../components/Theme';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 const { width } = Dimensions.get('window');
 const aspectRatio = 750 / 1125;
 
@@ -43,8 +43,9 @@ const items: DrawerItemProps[] = [
   },
 ];
 
-const Drawer = () => {
-  // const insets = useSafeAreaInsets();
+function Drawer() {
+  const navigation = useNavigation();
+  const theme = useTheme();
   return (
     <Box flex={1}>
       <Box flex={0.2} backgroundColor='white'>
@@ -55,26 +56,15 @@ const Drawer = () => {
           right={0}
           bottom={0}
           borderBottomRightRadius='xl'
-          backgroundColor='secondary'
-          flexDirection='row'
-          paddingTop='l'
-          justifyContent='space-between'
-          paddingHorizontal='m'
-          style={{ paddingTop: 30 /* insets.top */ }}>
-          <RoundedIconButton
-            name='x'
-            size={24}
-            color='white'
-            backgroundColor='secondary'
-            onPress={() => true}
-          />
-          <Text color='white'>MY PROFILE</Text>
-          <RoundedIconButton
-            name='shopping-bag'
-            size={24}
-            color='white'
-            backgroundColor='secondary'
-            onPress={() => true}
+          backgroundColor='secondary'>
+          <Header
+            title='menu'
+            left={{
+              icon: 'x',
+              onPress: () => navigation.dispatch(DrawerActions.closeDrawer()),
+            }}
+            right={{ icon: 'shopping-bag', onPress: () => true }}
+            dark
           />
         </Box>
       </Box>
@@ -105,7 +95,7 @@ const Drawer = () => {
           justifyContent='center'
           padding='xl'>
           <Box
-            top={-theme.spacing.xl}
+            // top={-theme.spacing.xl}
             alignSelf='center'
             backgroundColor='primary'
             height={100}
@@ -136,10 +126,6 @@ const Drawer = () => {
         <Image
           source={assets[0]}
           style={{
-            position: 'absolute',
-            left: 0,
-            right: 0,
-            top: -height * (1 - 0.61),
             width: DRAWER_WIDTH,
             height,
             borderTopLeftRadius: theme.borderRadii.xl,
@@ -148,6 +134,6 @@ const Drawer = () => {
       </Box>
     </Box>
   );
-};
+}
 
 export default Drawer;
