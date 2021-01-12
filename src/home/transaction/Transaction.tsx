@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { DataPoint } from './graph';
 import { Box, Text } from '../../components';
 
@@ -23,9 +24,9 @@ const Transaction = ({ transaction }: TransactionProps) => {
           <Text variant='title3'>{`#${transaction.id}`}</Text>
         </Box>
         <Text color='darkGrey'>
-          {`$${transaction.value} -  ${new Date(
-            transaction.date
-          ).toLocaleDateString()} `}
+          {`$${transaction.value} -  ${moment(transaction.date).format(
+            'DD MMMM, YYYY'
+          )}`}
         </Text>
       </Box>
       <Box>

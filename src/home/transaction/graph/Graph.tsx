@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { Dimensions, View } from 'react-native';
 import { Box, useTheme } from '../../../components';
 import { Theme } from '../../../components/Theme';
@@ -43,7 +44,11 @@ const Graph = ({ data, startDate, numberOfMonths }: GraphProps) => {
       <Box width={width} height={height}>
         {data.map((point) => {
           //todo:::
-          const i = new Date(point.date - startDate).getMonth();
+
+          const i = Math.round(
+            moment.duration(moment(point.date).diff(startDate)).asMonths()
+          );
+
           return (
             <Box
               key={point.id}

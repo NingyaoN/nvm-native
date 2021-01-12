@@ -1,4 +1,5 @@
 import React from 'react';
+import { CommonActions } from '@react-navigation/native';
 import { useNavigation, DrawerActions } from '@react-navigation/native';
 import { Dimensions, Image } from 'react-native';
 import { Box, Text, Header } from '../../components';
@@ -37,7 +38,13 @@ const items: DrawerItemProps[] = [
   {
     icon: 'feather',
     label: 'Logout',
-    screen: 'Logout',
+    onPress: (navigation) =>
+      navigation.dispatch(
+        CommonActions.reset({
+          index: 0,
+          routes: [{ name: 'Authentication' }],
+        })
+      ),
     color: 'danger',
   },
 ];
@@ -111,8 +118,8 @@ function Drawer() {
             </Text>
           </Box>
 
-          {items.map((item) => (
-            <DrawerItem key={item.screen} {...item} />
+          {items.map((item, id) => (
+            <DrawerItem key={id} {...item} />
           ))}
         </Box>
       </Box>

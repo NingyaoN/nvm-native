@@ -72,16 +72,15 @@ const { width: wWidth } = Dimensions.get('window');
 const Favourite = ({ navigation }: HomeNavigationProps<'FavouriteOutfits'>) => {
   const transition = (
     <Transition.Together>
-      <Transition.Change
-        interpolation='easeInOut'
-        durationMs={1000}></Transition.Change>
+      <Transition.Out type='fade' />
+      <Transition.In type='fade' />
     </Transition.Together>
   );
   const [outfits, setOutfits] = React.useState(defaultOutfits);
   const list = React.useRef<TransitioningView>(null);
   const [footerHeight, setFooterHeight] = React.useState(0);
   const theme = useTheme();
-  const width = (wWidth - theme.spacing.m * 2 - theme.spacing.s) / 2;
+  const width = (wWidth - theme.spacing.m * 3) / 2;
   return (
     <Box flex={1} backgroundColor='white'>
       <Header
@@ -100,14 +99,14 @@ const Favourite = ({ navigation }: HomeNavigationProps<'FavouriteOutfits'>) => {
             <Box flexDirection='row'>
               <Box marginRight='s'>
                 {outfits
-                  .filter(({ id }) => id % 2 !== 0)
+                  .filter((_, i) => i % 2 !== 0)
                   .map((outfit) => (
                     <Outfit key={outfit.id} outfit={outfit} width={width} />
                   ))}
               </Box>
               <Box>
                 {outfits
-                  .filter(({ id }) => id % 2 === 0)
+                  .filter((_, i) => i % 2 === 0)
                   .map((outfit) => (
                     <Outfit width={width} key={outfit.id} outfit={outfit} />
                   ))}

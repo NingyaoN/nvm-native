@@ -53,10 +53,8 @@ const Underlay = ({
           .fill(0)
           .map((_, i) => minDate.clone().add(i, 'month'))
           .map((date, index) => (
-            <Box width={step}>
-              <Text key={index} textAlign='center'>
-                {date.format('MMM')}
-              </Text>
+            <Box key={index} width={step}>
+              <Text textAlign='center'>{date.format('MMM')}</Text>
             </Box>
           ))}
       </Box>
