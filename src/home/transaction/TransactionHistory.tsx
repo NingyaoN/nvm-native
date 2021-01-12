@@ -1,27 +1,31 @@
 import React from 'react';
+import { ScrollView } from 'react-native-gesture-handler';
 import { Box, Text, Header } from '../../components';
 import { HomeNavigationProps } from '../../components/Navigation';
 import Graph, { DataPoint } from './graph';
+import Transaction from './Transaction';
+
+const startDate = new Date('2019-09-01').getTime();
+const numberOfMonths = 7;
+
 const data: DataPoint[] = [
   {
-    date: new Date('2020-06-13').getTime(),
-    value: 0,
-    color: 'primary',
-  },
-  {
-    date: new Date('2020-03-12').getTime(),
+    date: new Date('2019-10-01').getTime(),
     value: 410,
     color: 'violet',
+    id: 1545,
   },
   {
-    date: new Date('2020-01-01').getTime(),
+    date: new Date('2019-12-01').getTime(),
     value: 120,
     color: 'danger',
+    id: 124645,
   },
   {
-    date: new Date('2019-01-13').getTime(),
+    date: new Date('2020-02-13').getTime(),
     value: 300,
     color: 'orange',
+    id: 55213,
   },
 ];
 const TransactionHistory = ({
@@ -35,7 +39,7 @@ const TransactionHistory = ({
         title='Transaction History'
       />
 
-      <Box padding='m'>
+      <Box padding='m' flex={1}>
         <Box
           flexDirection='row'
           justifyContent='space-between'
@@ -50,7 +54,16 @@ const TransactionHistory = ({
             <Text color='primary'> All Time</Text>
           </Box>
         </Box>
-        <Graph data={data} />
+        <Graph
+          data={data}
+          startDate={startDate}
+          numberOfMonths={numberOfMonths}
+        />
+        <ScrollView>
+          {data.map((transaction) => (
+            <Transaction key={transaction.id} transaction={transaction} />
+          ))}
+        </ScrollView>
       </Box>
     </Box>
   );

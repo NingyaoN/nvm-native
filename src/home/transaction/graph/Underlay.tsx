@@ -1,21 +1,30 @@
 import React from 'react';
-
+import moment from 'moment';
 import { StyleSheet } from 'react-native';
 import { Text, Box, useTheme } from '../../../components';
 import { lerp } from './linear-interpolation';
 interface UnderlayProps {
-  dates: number[];
   minY: number;
   maxY: number;
   step: number;
+  startDate: number;
+
+  numberOfMonth: number;
 }
 
 export const MARGIN = 'xl';
 const ROW_HEIGHT = 16;
 const formatter = Intl.DateTimeFormat('en', { month: 'short' });
 
-const Underlay = ({ dates, minY, maxY, step }: UnderlayProps) => {
+const Underlay = ({
+  minY,
+  maxY,
+  step,
+  startDate,
+  numberOfMonth,
+}: UnderlayProps) => {
   const theme = useTheme();
+  const minDate = moment(startDate);
   return (
     <Box style={StyleSheet.absoluteFill}>
       <Box flex={1} justifyContent='space-between'>
@@ -40,13 +49,16 @@ const Underlay = ({ dates, minY, maxY, step }: UnderlayProps) => {
         height={theme.spacing[MARGIN]}
         flexDirection='row'
         alignItems='center'>
-        {dates.map((date, index) => (
-          <Box width={step}>
-            <Text key={index} textAlign='center'>
-              {formatter.format(new Date(date))}
-            </Text>
-          </Box>
-        ))}
+        {new Array(numberOfMonth)
+          .fill(0)
+          .map((_, i) => minDate.clone().add(i, 'month'))
+          .map((date, index) => (
+            <Box width={step}>
+              <Text key={index} textAlign='center'>
+                {date.format('MMM')}
+              </Text>
+            </Box>
+          ))}
       </Box>
     </Box>
   );

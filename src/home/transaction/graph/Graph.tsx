@@ -8,41 +8,45 @@ export interface DataPoint {
   date: number;
   value: number;
   color: keyof Theme['colors'];
+  id: number;
 }
 
 interface GraphProps {
   data: DataPoint[];
+  startDate: number;
+  numberOfMonths: number;
 }
 
 const { width: wWidth } = Dimensions.get('window');
 const aspectRatio = 195 / 305;
-const Graph = ({ data }: GraphProps) => {
+
+const Graph = ({ data, startDate, numberOfMonths }: GraphProps) => {
   const theme = useTheme();
   const canvasWidth = wWidth - theme.spacing.m * 2;
   const canvasHeight = canvasWidth * aspectRatio;
-
   const width = canvasWidth - theme.spacing[MARGIN];
   const height = canvasHeight - theme.spacing[MARGIN];
-
   const values = data.map((p) => p.value);
-  const dates = data.map((p) => p.date);
   const minY = Math.min(...values);
   const maxY = Math.max(...values);
-
-  const step = width / data.length;
+  const step = width / numberOfMonths;
 
   return (
     <Box paddingBottom={MARGIN} marginTop='xl' paddingLeft={MARGIN}>
-      <Underlay step={step} dates={dates} minY={minY} maxY={maxY} />
+      <Underlay
+        step={step}
+        minY={minY}
+        maxY={maxY}
+        startDate={startDate}
+        numberOfMonth={numberOfMonths}
+      />
       <Box width={width} height={height}>
-        {data.map((point, i) => {
-          if (point.value === 0) {
-            return null;
-          }
-
+        {data.map((point) => {
+          //todo:::
+          const i = new Date(point.date - startDate).getMonth();
           return (
             <Box
-              key={point.date}
+              key={point.id}
               position='absolute'
               left={i * step}
               bottom={0}
