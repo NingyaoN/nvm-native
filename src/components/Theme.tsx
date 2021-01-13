@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Dimensions } from 'react-native';
 import { ViewStyle, TextStyle, ImageStyle } from 'react-native';
 import {
   createTheme,
@@ -50,6 +51,7 @@ const theme = createTheme({
     d4: palette.lightBlue,
     d5: palette.yellow,
     d6: palette.darkGrey,
+    d7: palette.deepYellow,
     //transaction
     t1: palette.darkGrey,
     t2: palette.grey,

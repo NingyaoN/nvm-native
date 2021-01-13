@@ -6,6 +6,7 @@ import FavouriteOutfits from './favourite';
 import TransactionHistory from './transaction';
 import EditProfile from './profile';
 import Notifications from './notification';
+import Cart from './cart';
 import { HomeRoutes } from '../components';
 
 import DrawerContent, { DRAWER_WIDTH } from './drawer';
@@ -23,6 +24,7 @@ const HomeNavigator = () => {
       <Drawer.Screen name='TransactionHistory' component={TransactionHistory} />
       <Drawer.Screen name='EditProfile' component={EditProfile} />
       <Drawer.Screen name='Notifications' component={Notifications} />
+      <Drawer.Screen name='Cart' component={Cart} />
     </Drawer.Navigator>
   );
 };

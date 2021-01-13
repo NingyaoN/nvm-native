@@ -23,3 +23,4 @@ export { default as RoundedIconButton } from './RoundedIconButton';
 export { default as Header } from './Header';
 export { default as BorderlessTap } from './BorderlessTap';
 export { default as ContentFooter } from './ContentFooter';
+export { default as ScrollableContent } from './ScrollableContent';

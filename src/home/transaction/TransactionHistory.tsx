@@ -1,7 +1,14 @@
 import React from 'react';
 import { Dimensions, Image, StyleSheet, PixelRatio } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Box, Text, Header, makeStyles, ContentFooter } from '../../components';
+import {
+  Box,
+  ScrollableContent,
+  Text,
+  Header,
+  makeStyles,
+  ContentFooter,
+} from '../../components';
 import { Theme } from '../../components/Theme';
 import { HomeNavigationProps } from '../../components/Navigation';
 import Graph, { TopCurve, DataPoint } from './graph';
@@ -52,7 +59,7 @@ const TransactionHistory = ({
 }: HomeNavigationProps<'TransactionHistory'>) => {
   const styles = useStyles();
   return (
-    <ContentFooter>
+    <ScrollableContent>
       <Box flex={1} backgroundColor='background'>
         <Header
           left={{ icon: 'arrow-left', onPress: () => navigation.goBack() }}
@@ -88,21 +95,8 @@ const TransactionHistory = ({
             ))}
           </ScrollView>
         </Box>
-
-        {/* <TopCurve {...{ footerHeight }} /> */}
-        {/* <Box
-        position='absolute'
-        left={0}
-        right={0}
-        bottom={0}
-        height={footerHeight}>
-        <Image
-          style={styles.footer}
-          source={require('../../components/assets/patterns/1.jpg')}
-        />
-      </Box> */}
       </Box>
-    </ContentFooter>
+    </ScrollableContent>
   );
 };
 
