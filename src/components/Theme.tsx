@@ -49,7 +49,7 @@ const theme = createTheme({
     d3: palette.violet,
     d4: palette.lightBlue,
     d5: palette.yellow,
-
+    d6: palette.darkGrey,
     //transaction
     t1: palette.darkGrey,
     t2: palette.grey,

@@ -43,6 +43,12 @@ const items: DrawerItemProps[] = [
     color: 'd4',
   },
   {
+    icon: 'bell',
+    label: 'Notifications',
+    screen: 'Notifications',
+    color: 'd6',
+  },
+  {
     icon: 'feather',
     label: 'Logout',
     onPress: (navigation) =>
