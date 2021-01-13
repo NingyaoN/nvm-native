@@ -32,6 +32,7 @@ export const palette = {
 
 const theme = createTheme({
   colors: {
+    dy1: palette.deepYellow,
     primary: '#2CB9B0',
     primaryLight: '#E7F9E7',
     danger: '#FF0058',

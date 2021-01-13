@@ -11,7 +11,7 @@ const Background = () => {
   const theme = useTheme();
   return (
     <View style={StyleSheet.absoluteFill}>
-      <Box flex={1 / 3} style={{ backgroundColor: palette.lightBlue }}>
+      <Box flex={1 / 3} backgroundColor='dy1'>
         <Box
           flex={1}
           backgroundColor='background'
@@ -21,7 +21,7 @@ const Background = () => {
       <Box flex={1 / 3}>
         <Box flex={1} backgroundColor='background' />
         <Box flex={1} backgroundColor='secondary' />
-        {/* <Image
+        <Image
           source={assets[0]}
           style={{
             ...StyleSheet.absoluteFillObject,
@@ -30,9 +30,9 @@ const Background = () => {
             borderTopLeftRadius: theme.borderRadii.xl,
             borderBottomRightRadius: theme.borderRadii.xl,
           }}
-        /> */}
+        />
       </Box>
-      <Box flex={1 / 3} style={{ backgroundColor: palette.lightBlue }}>
+      <Box flex={1 / 3} backgroundColor='dy1'>
         <Box flex={1} backgroundColor='secondary' borderTopLeftRadius='xl' />
       </Box>
     </View>
