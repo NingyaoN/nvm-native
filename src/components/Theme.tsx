@@ -41,12 +41,13 @@ const theme = createTheme({
     button: '#0C0D34',
     graph1: palette.deepYellow,
     graph2: palette.violet,
-
+    textContrast: palette.white,
     //drawer
     d1: palette.orange,
     d2: palette.pink,
     d3: palette.violet,
-    d4: palette.yellow,
+    d4: palette.lightBlue,
+    d5: palette.yellow,
 
     //transaction
     t1: palette.darkGrey,

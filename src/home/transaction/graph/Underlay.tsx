@@ -40,7 +40,7 @@ const Underlay = ({
             <Box width={theme.spacing[MARGIN]} paddingRight='s'>
               <Text textAlign='right'>{Math.round(lerp(minY, maxY, t))}</Text>
             </Box>
-            <Box flex={1} height={1} backgroundColor='t1'></Box>
+            <Box flex={1} height={1} backgroundColor='t2'></Box>
           </Box>
         ))}
       </Box>

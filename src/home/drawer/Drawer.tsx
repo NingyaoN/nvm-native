@@ -29,11 +29,18 @@ const items: DrawerItemProps[] = [
     screen: 'FavouriteOutfits',
     color: 'd2',
   },
+
+  {
+    icon: 'edit',
+    label: 'Edit Profile',
+    screen: 'EditProfile',
+    color: 'd3',
+  },
   {
     icon: 'clock',
     label: 'Transaction Story',
     screen: 'TransactionHistory',
-    color: 'd3',
+    color: 'd4',
   },
   {
     icon: 'feather',
@@ -45,7 +52,7 @@ const items: DrawerItemProps[] = [
           routes: [{ name: 'Authentication' }],
         })
       ),
-    color: 'd4',
+    color: 'd5',
   },
 ];
 
@@ -101,8 +108,9 @@ function Drawer() {
           justifyContent='center'
           padding='xl'>
           <Box
-            // top={-theme.spacing.xl}
-            alignSelf='center'
+            position='absolute'
+            left={DRAWER_WIDTH / 2 - 50}
+            top={-50}
             backgroundColor='primary'
             height={100}
             width={100}
