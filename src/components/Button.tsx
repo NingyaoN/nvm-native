@@ -28,7 +28,7 @@ interface ButtonProps {
 const Button = ({ variant, label, onPress }: ButtonProps) => {
   const theme = useTheme<Theme>();
   const backgroundColor =
-    variant === 'primary' ? theme.colors.primary : theme.colors.grey;
+    variant === 'primary' ? theme.colors.primary : theme.colors.t2;
   const color =
     variant === 'primary' ? theme.colors.background : theme.colors.secondary;
   return (

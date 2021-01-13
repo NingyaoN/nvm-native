@@ -19,6 +19,15 @@ export const makeStyles = <T extends NamedStyles<T>>(
 
 export const palette = {
   white: 'white',
+  darkGrey: '#8A8D90',
+  orange: 'orange',
+  pink: '#FF87A2',
+  yellow: '#FFC641',
+  violet: '#442CB9',
+  lightBlue: '#BFEAF5',
+  deepYellow: '#f77f00',
+  grey: 'rgba(12, 13, 52, 0.05)',
+  lightGrey: '#FAFAFA',
 };
 
 const theme = createTheme({
@@ -29,16 +38,20 @@ const theme = createTheme({
     background: palette.white,
     secondary: '#0C0D34',
     text: 'rgba(12, 13, 52, 0.7)',
-    grey: 'rgba(12, 13, 52, 0.05)',
-    lightGrey: '#FAFAFA',
     button: '#0C0D34',
-    darkGrey: '#8A8D90',
-    orange: 'orange',
-    pink: '#FF87A2',
-    yellow: '#FFC641',
-    violet: '#442CB9',
-    lightBlue: '#BFEAF5',
-    deepYellow: '#f77f00',
+    graph1: palette.deepYellow,
+    graph2: palette.violet,
+
+    //drawer
+    d1: palette.orange,
+    d2: palette.pink,
+    d3: palette.violet,
+    d4: palette.yellow,
+
+    //transaction
+    t1: palette.darkGrey,
+    t2: palette.grey,
+    t3: palette.lightGrey,
   },
   borderRadii: {
     s: 4,
@@ -52,11 +65,14 @@ const theme = createTheme({
     l: 24,
     xl: 40,
   },
-  breakpoints: {},
+  breakpoints: {
+    phone: 0,
+    tablet: 768,
+  },
   textVariants: {
     hero: {
       fontSize: 80,
-      color: 'white',
+      color: 'background',
       textAlign: 'center',
       lineHeight: 80,
       fontFamily: 'SF-Pro-Display-Bold',

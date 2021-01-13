@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 import { Box } from '../../components';
-import { useTheme } from '../../components';
+import { useTheme, palette } from '../../components';
 
 interface BackgrounProps {}
 
@@ -11,7 +11,7 @@ const Background = () => {
   const theme = useTheme();
   return (
     <View style={StyleSheet.absoluteFill}>
-      <Box flex={1 / 3} backgroundColor='deepYellow'>
+      <Box flex={1 / 3} style={{ backgroundColor: palette.lightBlue }}>
         <Box
           flex={1}
           backgroundColor='background'
@@ -32,7 +32,7 @@ const Background = () => {
           }}
         />
       </Box>
-      <Box flex={1 / 3} backgroundColor='deepYellow'>
+      <Box flex={1 / 3} style={{ backgroundColor: palette.lightBlue }}>
         <Box flex={1} backgroundColor='secondary' borderTopLeftRadius='xl' />
       </Box>
     </View>

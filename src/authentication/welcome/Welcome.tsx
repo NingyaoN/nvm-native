@@ -18,7 +18,7 @@ const Welcome = ({ navigation }: AuthNavigationProps<'Welcome'>) => {
       <Box
         flex={1}
         borderBottomRightRadius={'xl'}
-        backgroundColor={'grey'}
+        backgroundColor='t2'
         alignItems={'flex-end'}
         justifyContent={'center'}>
         <Image
@@ -32,7 +32,7 @@ const Welcome = ({ navigation }: AuthNavigationProps<'Welcome'>) => {
           resizeMode='cover'
         />
       </Box>
-      <Box flex={1} backgroundColor={'grey'}>
+      <Box flex={1} backgroundColor='t2'>
         <Box
           flex={1}
           backgroundColor={'background'}

@@ -28,41 +28,20 @@ const data: DataPoint[] = [
   {
     date: new Date('2019-09-01').getTime(),
     value: 410,
-    color: 'violet',
+    color: 'graph1',
     id: 1545,
   },
   {
     date: new Date('2019-12-01').getTime(),
     value: 120,
-    color: 'danger',
+    color: 'graph2',
     id: 124645,
   },
   {
     date: new Date('2020-02-13').getTime(),
     value: 300,
-    color: 'orange',
+    color: 'graph2',
     id: 55213,
-  },
-
-  {
-    date: new Date('2020-03-13').getTime(),
-    value: 300,
-    color: 'secondary',
-    id: 535213,
-  },
-
-  {
-    date: new Date('2019-11-13').getTime(),
-    value: 300,
-    color: 'orange',
-    id: 5521342,
-  },
-
-  {
-    date: new Date('2019-10-13').getTime(),
-    value: 300,
-    color: 'orange',
-    id: 551213,
   },
 ];
 

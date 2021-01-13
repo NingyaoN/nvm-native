@@ -16,7 +16,7 @@ const Checkbox = ({ label, onChange, checked }: CheckboxProps) => {
       style={{ justifyContent: 'center' }}>
       <Box flexDirection='row' alignItems='center'>
         <Box
-          marginRight='m'
+          marginRight='xl'
           height={20}
           width={20}
           borderRadius='s'
